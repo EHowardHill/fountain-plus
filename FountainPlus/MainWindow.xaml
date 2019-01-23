@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FountainPlus"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Fountain Plus" Height="450" Width="800" MinWidth="300" MinHeight="200">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="52"/>
@@ -14,23 +14,40 @@
 
         <Menu Background="#FFF0F0F0">
             <MenuItem Header="File">
-
+                <MenuItem Header="Open"/>
+                <MenuItem Header="Save"/>
+                <MenuItem Header="Save As"/>
+                <MenuItem Header="Export"/>
             </MenuItem>
             <MenuItem Header="Edit">
-
+                <MenuItem Header="Undo"/>
+                <MenuItem Header="Redo"/>
+                <MenuItem Header="Select All"/>
             </MenuItem>
-            <MenuItem Header="Format">
-
-            </MenuItem>
-            <MenuItem Header="View">
-
+            <MenuItem Header="Preferences">
+                <MenuItem Header="Theme">
+                    <MenuItem Header="Light"/>
+                    <MenuItem Header="Dark"/>
+                </MenuItem>
+                <MenuItem Header="Toolbar">
+                    <MenuItem Header="Open" IsCheckable="True"/>
+                    <MenuItem Header="Save" IsCheckable="True"/>
+                    <MenuItem Header="Save As" IsCheckable="True"/>
+                    <MenuItem Header="Export" IsCheckable="True"/>
+                    <Separator/>
+                    <MenuItem Header="Undo" IsCheckable="True"/>
+                    <MenuItem Header="Redo" IsCheckable="True"/>
+                    <MenuItem Header="Select All" IsCheckable="True"/>
+                    <Separator/>
+                </MenuItem>
             </MenuItem>
             <MenuItem Header="Help">
-
+                <MenuItem Header="View Help"/>
+                <MenuItem Header="About"/>
             </MenuItem>
         </Menu>
 
-        <ToolBar ToolBarTray.IsLocked="True" Margin="0,21,0,0">
+        <ToolBar Margin="0,21,0,0">
             <Button Command="New" Content="New" />
             <Button Command="Open" Content="Open" />
             <Button Command="Save" Content="Save" />
