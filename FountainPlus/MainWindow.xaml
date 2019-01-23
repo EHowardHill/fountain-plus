@@ -30,7 +30,7 @@
             </MenuItem>
         </Menu>
 
-        <ToolBar Margin="0,21,0,0">
+        <ToolBar ToolBarTray.IsLocked="True" Margin="0,21,0,0">
             <Button Command="New" Content="New" />
             <Button Command="Open" Content="Open" />
             <Button Command="Save" Content="Save" />
@@ -42,8 +42,27 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <TextBox AcceptsReturn="True" Margin="10,10,5,10" SpellCheck.IsEnabled="True" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Visible" />
-            <TextBox IsReadOnly="True" Grid.Column="1" Margin="5,10,10,10" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Visible" />
+            <!-- Input Box -->
+            <TextBox
+                Name="boxInput"
+                AcceptsReturn="True"
+                Margin="10,26,5,10"
+                SpellCheck.IsEnabled="True"
+                ScrollViewer.CanContentScroll="True"
+                VerticalScrollBarVisibility="Visible"
+                TextChanged="BoxInput_TextChanged" />
+
+            <!-- Output Box -->
+            <TextBox
+                Name="boxOutput"
+                IsReadOnly="True"
+                Grid.Column="1"
+                Margin="5,26,10,10"
+                ScrollViewer.CanContentScroll="True"
+                VerticalScrollBarVisibility="Visible" />
+            
+            <Label Content="INPUT" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
+            <Label Content="OUTPUT" Grid.Column="1" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
         </Grid>
 
     </Grid>

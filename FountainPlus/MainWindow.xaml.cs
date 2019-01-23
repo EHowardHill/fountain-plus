@@ -24,5 +24,12 @@ namespace FountainPlus
         {
             InitializeComponent();
         }
+
+        // Events
+
+        private void BoxInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            boxOutput.Text = Fountain.Process(boxInput.Text);
+        }
     }
 }
