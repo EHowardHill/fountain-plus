@@ -1,0 +1,50 @@
+﻿<Window x:Class="FountainPlus.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FountainPlus"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="52"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Menu Background="#FFF0F0F0">
+            <MenuItem Header="File">
+
+            </MenuItem>
+            <MenuItem Header="Edit">
+
+            </MenuItem>
+            <MenuItem Header="Format">
+
+            </MenuItem>
+            <MenuItem Header="View">
+
+            </MenuItem>
+            <MenuItem Header="Help">
+
+            </MenuItem>
+        </Menu>
+
+        <ToolBar Margin="0,21,0,0">
+            <Button Command="New" Content="New" />
+            <Button Command="Open" Content="Open" />
+            <Button Command="Save" Content="Save" />
+        </ToolBar>
+
+        <Grid Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox AcceptsReturn="True" Margin="10,10,5,10" SpellCheck.IsEnabled="True" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Visible" />
+            <TextBox IsReadOnly="True" Grid.Column="1" Margin="5,10,10,10" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Visible" />
+        </Grid>
+
+    </Grid>
+</Window>
