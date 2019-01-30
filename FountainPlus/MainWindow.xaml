@@ -8,50 +8,56 @@
         Title="Fountain Plus" Height="450" Width="800" MinWidth="300" MinHeight="200">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="52"/>
+            <RowDefinition Height="140"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Menu Background="#FFF0F0F0">
-            <MenuItem Header="File">
-                <MenuItem Header="Open"/>
-                <MenuItem Header="Save"/>
-                <MenuItem Header="Save As"/>
-                <MenuItem Header="Export"/>
-            </MenuItem>
-            <MenuItem Header="Edit">
-                <MenuItem Header="Undo"/>
-                <MenuItem Header="Redo"/>
-                <MenuItem Header="Select All"/>
-            </MenuItem>
-            <MenuItem Header="Preferences">
-                <MenuItem Header="Theme">
-                    <MenuItem Header="Light"/>
-                    <MenuItem Header="Dark"/>
-                </MenuItem>
-                <MenuItem Header="Toolbar">
-                    <MenuItem Header="Open" IsCheckable="True"/>
-                    <MenuItem Header="Save" IsCheckable="True"/>
-                    <MenuItem Header="Save As" IsCheckable="True"/>
-                    <MenuItem Header="Export" IsCheckable="True"/>
-                    <Separator/>
-                    <MenuItem Header="Undo" IsCheckable="True"/>
-                    <MenuItem Header="Redo" IsCheckable="True"/>
-                    <MenuItem Header="Select All" IsCheckable="True"/>
-                    <Separator/>
-                </MenuItem>
-            </MenuItem>
-            <MenuItem Header="Help">
-                <MenuItem Header="View Help"/>
-                <MenuItem Header="About"/>
-            </MenuItem>
-        </Menu>
+        <Ribbon>
+            <RibbonTab Header="Style">
+                <RibbonGroup Header="Markup">
+                    <RibbonComboBox Label="LANGUAGE" FontWeight="Bold" FontSize="10" />
 
-        <ToolBar Margin="0,21,0,0">
-            <Button Command="New" Content="New" />
-            <Button Command="Open" Content="Open" />
-            <Button Command="Save" Content="Save" />
-        </ToolBar>
+                </RibbonGroup>
+                <RibbonGroup Header="Format" Margin="0,1" Width="295">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="161"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="24"/>
+                                    <RowDefinition Height="24"/>
+                                </Grid.RowDefinitions>
+
+                                <Label Content="FONT" FontWeight="Bold" FontSize="10"/>
+                                <Label Content="COLOR" Grid.Row="1" FontSize="10" FontWeight="Bold"/>
+
+                                <RibbonComboBox Grid.Column="1" />
+                                <RibbonComboBox Grid.Column="1" Grid.Row="1" />
+                            </Grid>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <RibbonButton Label="BOLD" FontWeight="Bold" FontSize="10" Height="16" />
+                            <RibbonButton Label="ITALIC" FontWeight="Bold" FontSize="10" Height="16" />
+                            <RibbonButton Label="UNDERLINE" FontWeight="Bold" FontSize="10" Height="16" />
+                            <RibbonButton Label="STRIKETHROUGH" FontWeight="Bold" FontSize="10" Height="16" />
+                        </StackPanel>
+                    </Grid>
+                </RibbonGroup>
+            </RibbonTab>
+            <RibbonTab Header="Insert">
+
+            </RibbonTab>
+            <RibbonTab Header="Export">
+
+            </RibbonTab>
+        </Ribbon>
 
         <Grid Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
             <Grid.ColumnDefinitions>
@@ -77,9 +83,9 @@
                 Margin="5,26,10,10"
                 ScrollViewer.CanContentScroll="True"
                 VerticalScrollBarVisibility="Visible" />
-            
-            <Label Content="INPUT" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
-            <Label Content="OUTPUT" Grid.Column="1" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top" Width="100" FontWeight="Bold"/>
+
+            <Label Content="INPUT" HorizontalAlignment="Right" Margin="0,0,5,0" VerticalAlignment="Top" Width="379" FontWeight="Bold"/>
+            <Label Content="OUTPUT" Grid.Column="1" HorizontalAlignment="Center" Margin="5,0" VerticalAlignment="Top" Width="386" FontWeight="Bold"/>
         </Grid>
 
     </Grid>
