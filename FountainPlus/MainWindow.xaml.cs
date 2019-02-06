@@ -29,7 +29,13 @@ namespace FountainPlus
 
         private void BoxInput_TextChanged(object sender, TextChangedEventArgs e)
         {
-            boxOutput.Text = Fountain.Process(boxInput.Text);
+            try
+            {
+                OutputBrowser.NavigateToString(boxInput.Text);
+            } catch
+            {
+                OutputBrowser.NavigateToString("<html></html>");
+            }
         }
     }
 }
