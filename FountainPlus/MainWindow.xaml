@@ -5,61 +5,61 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FountainPlus"
         mc:Ignorable="d"
-        Title="Fountain Plus" Height="450" Width="800" MinWidth="300" MinHeight="200">
-    <Grid>
+        Title="Nymblr" Height="450" Width="1062" MinWidth="300" MinHeight="200">
+    <Grid Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="140"/>
+            <RowDefinition Height="63"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Ribbon>
-            <RibbonTab Header="Style">
-                <RibbonGroup Header="Markup">
-                    <RibbonComboBox Label="LANGUAGE" FontWeight="Bold" FontSize="10" />
+        <TabControl SelectedIndex="1">
+            <TabItem Header="File">
+                <WrapPanel Margin="5">
+                    <Button Content="New" Height="22" Width="75" Margin="0,0,5,0" />
+                    <Button Content="Open" Height="22" Width="75" Margin="0,0,5,0" />
+                    <Button Content="Save" Height="22" Width="75" Margin="0,0,5,0" />
+                    <Button Content="Save As" Height="22" Width="75" Margin="0,0,5,0" />
+                    <Button Content="Export" Height="22" Width="75" Margin="0,0,5,0" />
+                </WrapPanel>
 
-                </RibbonGroup>
-                <RibbonGroup Header="Format" Margin="0,1" Width="295">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="161"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <StackPanel>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="50"/>
-                                    <ColumnDefinition Width="100"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="24"/>
-                                    <RowDefinition Height="24"/>
-                                </Grid.RowDefinitions>
+            </TabItem>
 
-                                <Label Content="FONT" FontWeight="Bold" FontSize="10"/>
-                                <Label Content="COLOR" Grid.Row="1" FontSize="10" FontWeight="Bold"/>
+            <TabItem Header="Format">
+                <WrapPanel Margin="10,5">
+                    <Label>Interpreter</Label>
+                    <ComboBox SelectedIndex="1" Margin="0,0,5,0">
+                        <ComboBoxItem Content="Fountain"/>
+                        <ComboBoxItem Content="HTML"/>
+                    </ComboBox>
+                    <Button Content="Import New" Height="24" Width="80" Margin="0,0,5,0" />
+                    <Button Content="Edit" Height="24" Width="80" Margin="0,0,5,0" />
 
-                                <RibbonComboBox Grid.Column="1" />
-                                <RibbonComboBox Grid.Column="1" Grid.Row="1" />
-                            </Grid>
-                        </StackPanel>
-                        <StackPanel Grid.Column="1">
-                            <RibbonButton Label="BOLD" FontWeight="Bold" FontSize="10" Height="16" />
-                            <RibbonButton Label="ITALIC" FontWeight="Bold" FontSize="10" Height="16" />
-                            <RibbonButton Label="UNDERLINE" FontWeight="Bold" FontSize="10" Height="16" />
-                            <RibbonButton Label="STRIKETHROUGH" FontWeight="Bold" FontSize="10" Height="16" />
-                        </StackPanel>
-                    </Grid>
-                </RibbonGroup>
-            </RibbonTab>
-            <RibbonTab Header="Insert">
+                    <Separator Margin="20,2" />
+                    <Label Content="Editor"/>
+                    <Button Content="B" Height="24" Width="24" Margin="0,0,5,0" FontWeight="Bold" />
+                    <Button Content="I" Height="24" Width="24" Margin="0,0,5,0" FontStyle="Italic"  />
+                    <ComboBox SelectedIndex="0" Margin="0,0,5,0">
+                        <ComboBoxItem Content="Consolas"/>
+                        <ComboBoxItem Content="Franklin Gothic"/>
+                        <ComboBoxItem Content="Palatino Linotype"/>
+                    </ComboBox>
+                    <ComboBox SelectedIndex="0" Margin="0,0,5,0">
+                        <ComboBoxItem Content="Light"/>
+                        <ComboBoxItem Content="Sepia"/>
+                        <ComboBoxItem Content="Dark"/>
+                    </ComboBox>
 
-            </RibbonTab>
-            <RibbonTab Header="Export">
+                    <Separator Margin="20,2" />
+                    <Label Content="Previewer"/>
+                    <Button Content="B" Height="24" Width="24" Margin="0,0,5,0" FontWeight="Bold" />
+                    <Button Content="I" Height="24" Width="24" Margin="0,0,5,0" FontStyle="Italic"  />
+                    <Separator Margin="10,2" />
+                </WrapPanel>
+            </TabItem>
 
-            </RibbonTab>
-        </Ribbon>
+        </TabControl>
 
-        <Grid Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
+        <Grid Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -69,23 +69,21 @@
             <TextBox
                 Name="boxInput"
                 AcceptsReturn="True"
-                Margin="10,26,5,10"
+                Margin="10,26,10,10"
                 SpellCheck.IsEnabled="True"
                 ScrollViewer.CanContentScroll="True"
                 VerticalScrollBarVisibility="Visible"
                 TextChanged="BoxInput_TextChanged" />
 
             <!-- Output Box -->
-            <TextBox
-                Name="boxOutput"
-                IsReadOnly="True"
+            <WebBrowser
+                Name="OutputBrowser"
                 Grid.Column="1"
-                Margin="5,26,10,10"
-                ScrollViewer.CanContentScroll="True"
-                VerticalScrollBarVisibility="Visible" />
+                Margin="10,26,10,10"
+                Source="{x:Null}"/>
 
-            <Label Content="INPUT" HorizontalAlignment="Right" Margin="0,0,5,0" VerticalAlignment="Top" Width="379" FontWeight="Bold"/>
-            <Label Content="OUTPUT" Grid.Column="1" HorizontalAlignment="Center" Margin="5,0" VerticalAlignment="Top" Width="386" FontWeight="Bold"/>
+            <Label Content="INPUT" Margin="10,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Content="OUTPUT" Grid.Column="1" Margin="10,0" VerticalAlignment="Top" FontWeight="Bold"/>
         </Grid>
 
     </Grid>
