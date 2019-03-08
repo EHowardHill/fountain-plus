@@ -9,6 +9,13 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100px"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
+        
+        <CommandBar />
+        
     </Grid>
 </Page>
