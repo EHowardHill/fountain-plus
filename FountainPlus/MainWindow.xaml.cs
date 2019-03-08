@@ -31,7 +31,7 @@ namespace FountainPlus
         {
             try
             {
-                OutputBrowser.NavigateToString(boxInput.Text);
+                OutputBrowser.NavigateToString(Fountain.Process(boxInput.Text));
             } catch
             {
                 OutputBrowser.NavigateToString("<html></html>");
