@@ -76,7 +76,7 @@
                 SpellCheck.IsEnabled="True"
                 ScrollViewer.CanContentScroll="True"
                 VerticalScrollBarVisibility="Visible"
-                TextChanged="BoxInput_TextChanged" />
+                TextChanged="BoxInput_TextChanged" FontFamily="Consolas" />
 
             <!-- Output Box -->
             <WebBrowser
