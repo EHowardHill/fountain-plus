@@ -12,7 +12,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TabControl SelectedIndex="1">
+        <TabControl Name="Bkg_Tabbar" SelectedIndex="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
             <TabItem Header="File">
                 <WrapPanel Margin="5">
                     <Button Content="New" Height="22" Width="75" Margin="0,0,5,0" />
@@ -26,7 +26,7 @@
 
             <TabItem Header="Format">
                 <WrapPanel Margin="10,5">
-                    <Label>Interpreter</Label>
+                    <Label Name="Label_Int">Interpreter</Label>
                     <ComboBox SelectedIndex="1" Margin="0,0,5,0" Width="82">
                         <ComboBoxItem Content="Fountain"/>
                         <ComboBoxItem Content="HTML"/>
@@ -34,28 +34,25 @@
                     <Button Content="Import" Height="24" Width="65" Margin="0,0,5,0" />
 
                     <Separator Margin="20,2" />
-                    <Label Content="Editor"/>
-                    <ComboBox Name="Drop_Font" SelectedIndex="0" Margin="0,0,5,0" Width="82">
-                        <ComboBoxItem Content="Consolas"/>
-                        <ComboBoxItem Content="Franklin Gothic"/>
-                        <ComboBoxItem Content="Palatino Linotype"/>
+                    <Label Name="Label_Edt" Content="Editor"/>
+                    <ComboBox Name="Drop_Font" ItemsSource="{Binding Source={x:Static Fonts.SystemFontFamilies}}" Margin="0,0,5,0" Width="82" SelectionChanged="Drop_Font_SelectionChanged">
+
                     </ComboBox>
-                    <ComboBox Name="Drop_Interface" SelectedIndex="0" Margin="0,0,5,0" Width="65">
+                    <ComboBox Name="Drop_Interface" SelectedIndex="0" Margin="0,0,5,0" Width="65" SelectionChanged="Drop_Interface_SelectionChanged">
                         <ComboBoxItem Content="Light"/>
-                        <ComboBoxItem Content="Sepia"/>
                         <ComboBoxItem Content="Dark"/>
                     </ComboBox>
 
                     <Separator Margin="20,2" />
-                    <Label Content="Previewer"/>
-                    <Button     Name="Btn_Update" Content="Update" Height="24" Width="65" Margin="0,0,5,0" Click="Btn_Update_Click"  />
-                    <CheckBox   Name="Check_Update" Content="Auto-Update" VerticalAlignment="Center" Checked="Check_Update_Checked" Unchecked="Check_Update_Unchecked" />
+                    <Label          Name="Label_Pre" Content="Previewer"/>
+                    <Button         Name="Btn_Update" IsEnabled="False" Content="Update" Height="24" Width="65" Margin="0,0,5,0" Click="Btn_Update_Click"  />
+                    <ToggleButton   Name="Check_AutoUpdate" IsChecked="True" Content="Auto Refresh" Height="24" Width="92" Margin="0,0,5,0" Checked="Check_Update_Checked" Unchecked="Check_Update_Unchecked"></ToggleButton>
                 </WrapPanel>
             </TabItem>
 
         </TabControl>
 
-        <Grid Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}">
+        <Grid Name="Bkg_PreviewHub" Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -64,6 +61,7 @@
             <!-- Input Box -->
             <TextBox
                 Name="boxInput"
+                FontSize="14"
                 AcceptsReturn="True"
                 Margin="10,26,10,10"
                 SpellCheck.IsEnabled="True"
@@ -78,8 +76,8 @@
                 Margin="10,26,10,10"
                 Source="{x:Null}"/>
 
-            <Label Content="INPUT" Margin="10,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Label Content="OUTPUT" Grid.Column="1" Margin="10,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Name="Label_Input" Content="INPUT" Margin="10,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label Name="Label_Outpt" Content="OUTPUT" Grid.Column="1" Margin="10,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
         </Grid>
 
     </Grid>
