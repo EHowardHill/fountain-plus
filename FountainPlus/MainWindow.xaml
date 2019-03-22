@@ -27,23 +27,20 @@
             <TabItem Header="Format">
                 <WrapPanel Margin="10,5">
                     <Label>Interpreter</Label>
-                    <ComboBox SelectedIndex="1" Margin="0,0,5,0">
+                    <ComboBox SelectedIndex="1" Margin="0,0,5,0" Width="82">
                         <ComboBoxItem Content="Fountain"/>
                         <ComboBoxItem Content="HTML"/>
                     </ComboBox>
-                    <Button Content="Import New" Height="24" Width="80" Margin="0,0,5,0" />
-                    <Button Content="Edit" Height="24" Width="80" Margin="0,0,5,0" />
+                    <Button Content="Import" Height="24" Width="65" Margin="0,0,5,0" />
 
                     <Separator Margin="20,2" />
                     <Label Content="Editor"/>
-                    <Button Content="B" Height="24" Width="24" Margin="0,0,5,0" FontWeight="Bold" />
-                    <Button Content="I" Height="24" Width="24" Margin="0,0,5,0" FontStyle="Italic"  />
-                    <ComboBox SelectedIndex="0" Margin="0,0,5,0">
+                    <ComboBox Name="Drop_Font" SelectedIndex="0" Margin="0,0,5,0" Width="82">
                         <ComboBoxItem Content="Consolas"/>
                         <ComboBoxItem Content="Franklin Gothic"/>
                         <ComboBoxItem Content="Palatino Linotype"/>
                     </ComboBox>
-                    <ComboBox SelectedIndex="0" Margin="0,0,5,0">
+                    <ComboBox Name="Drop_Interface" SelectedIndex="0" Margin="0,0,5,0" Width="65">
                         <ComboBoxItem Content="Light"/>
                         <ComboBoxItem Content="Sepia"/>
                         <ComboBoxItem Content="Dark"/>
@@ -51,12 +48,8 @@
 
                     <Separator Margin="20,2" />
                     <Label Content="Previewer"/>
-                    <Button Content="B" Height="24" Width="24" Margin="0,0,5,0" FontWeight="Bold" />
-                    <Button Content="I" Height="24" Width="24" Margin="0,0,5,0" FontStyle="Italic"  />
-                    <Button Content="Update" Height="24" Width="70" Margin="0,0,5,0"  />
-                    <CheckBox Content="Auto-Update" VerticalAlignment="Center" Margin="0,0,10,0" IsChecked="True" />
-                    
-                    <Separator Margin="10,2" />
+                    <Button     Name="Btn_Update" Content="Update" Height="24" Width="65" Margin="0,0,5,0" Click="Btn_Update_Click"  />
+                    <CheckBox   Name="Check_Update" Content="Auto-Update" VerticalAlignment="Center" Checked="Check_Update_Checked" Unchecked="Check_Update_Unchecked" />
                 </WrapPanel>
             </TabItem>
 
