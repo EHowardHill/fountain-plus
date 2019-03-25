@@ -3,10 +3,9 @@ using System.IO;
 using System.Windows;
 using Newtonsoft.Json;
 
-namespace FountainPlus
-{
-    class Flags
-    {
+namespace FountainPlus {
+    class Flags {
+
         // Different flags go here
         public string name;
 
@@ -15,11 +14,20 @@ namespace FountainPlus
         {
             Flags output = new Flags();
 
-            foreach (string file in Directory.GetFiles("./JSON/"))
-            {
-                output = JsonConvert.DeserializeObject<Flags>(File.ReadAllText(f));
-                if (output.name == s) { return output; }
+            // If JSON directory exists, search for file
+            if (Directory.Exists("./JSON/")) {
+                foreach (string f in Directory.GetFiles("./JSON/")) {
+                    try {
+                        output = JsonConvert.DeserializeObject<Flags>(File.ReadAllText(f));
+                        if (output.name == s) { return output; }
+                    }
+
+                    catch { }
+                }
             }
+
+            // If not, create a directory
+            else { Directory.CreateDirectory("./JSON"); }
 
             return null;
         }
