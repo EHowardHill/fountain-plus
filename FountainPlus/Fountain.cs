@@ -1,21 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FountainPlus
 {
     class Fountain
     {
+        // Ultimate output
+        public static string output;
 
         // Process input
-        public static String Process(String input)
+        public static string Process(string input)
         {
-            String output;
             output = "<meta http-equiv=\"X - UA - Compatible\" content=\"IE = 9\" >\n";
             output += input;
-            Console.WriteLine(output);
             return output;
         }
     }
