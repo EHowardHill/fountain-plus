@@ -11,6 +11,7 @@ namespace FountainPlus
         public MainWindow() {
             InitializeComponent();
             Drop_Font.SelectedValue = "Consolas";
+            Flags.Import("");
         }
 
         // Auto-Update
