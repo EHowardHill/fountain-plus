@@ -5,9 +5,9 @@ using System.Windows.Media;
 namespace FountainPlus
 {
     /// Interaction logic for MainWindow.xaml
-    public partial class MainWindow : Window {
+    public partial class LandingEN : Window {
 
-        public MainWindow() {
+        public LandingEN() {
             InitializeComponent();
             Drop_Font.SelectedValue = "Consolas";
             Flags.Import("");
