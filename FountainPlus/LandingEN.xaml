@@ -16,8 +16,8 @@
             <TabItem Header="File">
                 <WrapPanel Margin="5">
                     <Button Content="New" Height="22" Width="75" Margin="0,0,5,0" />
-                    <Button Content="Open" Height="22" Width="75" Margin="0,0,5,0" />
-                    <Button Content="Save" Height="22" Width="75" Margin="0,0,5,0" />
+                    <Button Content="Open" Height="22" Width="75" Margin="0,0,5,0" Click="Button_Click_1" />
+                    <Button Content="Save" Height="22" Width="75" Margin="0,0,5,0" Click="Button_Click" />
                     <Button Content="Save As" Height="22" Width="75" Margin="0,0,5,0" />
                     <Button Content="Export" Height="22" Width="75" Margin="0,0,5,0" />
                 </WrapPanel>
@@ -54,8 +54,9 @@
 
         <Grid Name="Bkg_PreviewHub" Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="212*"/>
+                <ColumnDefinition Width="315*"/>
+                <ColumnDefinition Width="527*"/>
             </Grid.ColumnDefinitions>
 
             <!-- Input Box -->
@@ -67,17 +68,17 @@
                 SpellCheck.IsEnabled="True"
                 ScrollViewer.CanContentScroll="True"
                 VerticalScrollBarVisibility="Visible"
-                TextChanged="BoxInput_TextChanged" FontFamily="Consolas" />
+                TextChanged="BoxInput_TextChanged" FontFamily="Consolas" Grid.ColumnSpan="2" />
 
             <!-- Output Box -->
             <WebBrowser
                 Name="OutputBrowser"
-                Grid.Column="1"
+                Grid.Column="2"
                 Margin="10,26,10,10"
                 Source="{x:Null}"/>
 
-            <Label Name="Label_Input" Content="INPUT" Margin="10,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Label Name="Label_Outpt" Content="OUTPUT" Grid.Column="1" Margin="10,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
+            <Label Name="Label_Input" Content="INPUT" Margin="10,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2"/>
+            <Label Name="Label_Outpt" Content="OUTPUT" Grid.Column="2" Margin="10,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
         </Grid>
 
     </Grid>

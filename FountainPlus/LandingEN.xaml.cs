@@ -1,6 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System;
+using System.IO;
 
 namespace FountainPlus
 {
@@ -82,6 +84,45 @@ namespace FountainPlus
             }
 
             catch { }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            // left text field = boxInput
+            string textToSave = boxInput.Text;
+
+            // Set a variable to the Documents path.
+            string docPath =
+              Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+            // Write the string array to a new file named "WriteLines.txt".
+            using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "TestFile.txt")))
+            {
+                    outputFile.WriteLine(textToSave);
+            }
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // Set a variable to the Documents path.
+                string docPath =
+                  Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+                // Open the text file using a stream reader.
+                using (StreamReader sr = new StreamReader(Path.Combine(docPath, "TestFile.txt")))
+                {
+                    // Read the stream to a string, and write the string to the console.
+                    boxInput.Text = sr.ReadToEnd();
+                }
+            }
+            catch (IOException error1)
+            {
+                Console.WriteLine("The file could not be read:");
+                Console.WriteLine(error1.Message);
+            }
         }
     }
 }
