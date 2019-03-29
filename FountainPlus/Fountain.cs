@@ -11,7 +11,7 @@ namespace FountainPlus
         public static string Process(string input)
         {
             output = "<meta http-equiv=\"X - UA - Compatible\" content=\"IE = 9\" >\n";
-            output += input;
+            output += input; //feeling cute, might delete later
             return output;
         }
     }
