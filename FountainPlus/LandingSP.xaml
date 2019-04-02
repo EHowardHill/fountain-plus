@@ -1,4 +1,4 @@
-﻿<Window x:Class="FountainPlus.LandingJP"
+﻿<Window x:Class="FountainPlus.LandingSP"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -13,40 +13,40 @@
         </Grid.RowDefinitions>
 
         <TabControl Name="Bkg_Tabbar" SelectedIndex="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
-            <TabItem Header="ファイル">
+            <TabItem Header="Archivo">
                 <WrapPanel Margin="5">
-                    <Button Content="新しい" Height="22" Width="75" Margin="0,0,5,0" />
-                    <Button Content="開いた" Height="22" Width="75" Margin="0,0,5,0" Click="Button_Click_1" />
-                    <Button Content="保管" Height="22" Width="75" Margin="0,0,5,0" Click="Button_Click" />
-                    <Button Content="新規保管" Height="22" Width="75" Margin="0,0,5,0" />
-                    <Button Content="輸出する" Height="22" Width="75" Margin="0,0,5,0" />
+                    <Button Content="Nuevo" Height="22" Width="75" Margin="0,0,5,0" />
+                    <Button Content="Abierto" Height="22" Width="75" Margin="0,0,5,0" Click="Button_Click_1" />
+                    <Button Content="Guardar" Height="22" Width="75" Margin="0,0,5,0" Click="Button_Click" />
+                    <Button Content="Guardar Como" Height="22" Width="121" Margin="0,0,5,0" />
+                    <Button Content="Exportar" Height="22" Width="75" Margin="0,0,5,0" />
                 </WrapPanel>
 
             </TabItem>
 
-            <TabItem Header="フォーマット">
+            <TabItem Header="Formato">
                 <WrapPanel Margin="10,5">
-                    <Label Name="Label_Int">通訳</Label>
+                    <Label Name="Label_Int">Intérprete</Label>
                     <ComboBox SelectedIndex="1" Margin="0,0,5,0" Width="82">
                         <ComboBoxItem Content="Fountain"/>
                         <ComboBoxItem Content="HTML"/>
                     </ComboBox>
-                    <Button Content="インポート" Height="24" Width="65" Margin="0,0,5,0" />
+                    <Button Content="Importar" Height="24" Width="65" Margin="0,0,5,0" />
 
                     <Separator Margin="20,2" />
-                    <Label Name="Label_Edt" Content="編集者"/>
+                    <Label Name="Label_Edt" Content="Editor"/>
                     <ComboBox Name="Drop_Font" ItemsSource="{Binding Source={x:Static Fonts.SystemFontFamilies}}" Margin="0,0,5,0" Width="82" SelectionChanged="Drop_Font_SelectionChanged">
 
                     </ComboBox>
                     <ComboBox Name="Drop_Interface" SelectedIndex="0" Margin="0,0,5,0" Width="65" SelectionChanged="Drop_Interface_SelectionChanged">
-                        <ComboBoxItem Content="光"/>
-                        <ComboBoxItem Content="ダーク"/>
+                        <ComboBoxItem Content="Luz"/>
+                        <ComboBoxItem Content="Oscuro"/>
                     </ComboBox>
 
                     <Separator Margin="20,2" />
-                    <Label          Name="Label_Pre" Content="プレビュー"/>
-                    <Button         Name="Btn_Update" IsEnabled="False" Content="更新" Height="24" Width="65" Margin="0,0,5,0" Click="Btn_Update_Click"  />
-                    <ToggleButton   Name="Check_AutoUpdate" IsChecked="True" Content="自動更新" Height="24" Width="92" Margin="0,0,5,0" Checked="Check_Update_Checked" Unchecked="Check_Update_Unchecked"></ToggleButton>
+                    <Label          Name="Label_Pre" Content="Vista Previa"/>
+                    <Button         Name="Btn_Update" IsEnabled="False" Content="Actualizar" Height="24" Width="65" Margin="0,0,5,0" Click="Btn_Update_Click"  />
+                    <ToggleButton   Name="Check_AutoUpdate" IsChecked="True" Content="Actualización automática" Height="24" Width="162" Margin="0,0,5,0" Checked="Check_Update_Checked" Unchecked="Check_Update_Unchecked"></ToggleButton>
                 </WrapPanel>
             </TabItem>
 
@@ -77,8 +77,8 @@
                 Margin="10,26,10,10"
                 Source="{x:Null}"/>
 
-            <Label Name="Label_Input" Content="入力" Margin="10,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2"/>
-            <Label Name="Label_Outpt" Content="出力" Grid.Column="2" Margin="10,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
+            <Label Name="Label_Input" Content="Entrada" Margin="10,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2"/>
+            <Label Name="Label_Outpt" Content="Salida" Grid.Column="2" Margin="10,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
         </Grid>
 
     </Grid>

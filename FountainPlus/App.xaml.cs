@@ -17,6 +17,9 @@ namespace FountainPlus
                 case "Japanese (Japan)":
                     landing = new LandingJP();
                     break;
+                case "Spanish (Mexico)":
+                    landing = new LandingSP();
+                    break;
                 default:
                     landing = new LandingEN();
                     break;

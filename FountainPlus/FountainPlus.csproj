@@ -73,6 +73,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="LandingSP.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="LandingJP.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -87,6 +91,9 @@
     </Compile>
     <Compile Include="Flags.cs" />
     <Compile Include="Fountain.cs" />
+    <Compile Include="LandingSP.xaml.cs">
+      <DependentUpon>LandingSP.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LandingJP.xaml.cs">
       <DependentUpon>LandingJP.xaml</DependentUpon>
     </Compile>
