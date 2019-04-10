@@ -1,0 +1,7 @@
+{
+	"name": "Fountain",
+	"version": 1.00,
+	"author": "Ethan Hill",
+	"global-css": "font-family: Courier New, Courier, monospace;",
+	"js-snippet": "fountain.js"
+}
