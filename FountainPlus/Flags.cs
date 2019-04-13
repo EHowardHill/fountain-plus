@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Newtonsoft.Json;
 
 namespace FountainPlus {
@@ -6,6 +7,10 @@ namespace FountainPlus {
 
         // Different flags go here
         public string name;
+        public double version;
+        public string delimiter;
+        public string globalStyle;
+        public string jsSnippet;
 
         // Import function
         public static Flags Import(string s)

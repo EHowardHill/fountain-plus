@@ -124,5 +124,13 @@ namespace FountainPlus
                 Console.WriteLine(error1.Message);
             }
         }
+
+        private void Button_Import_Click(object sender, RoutedEventArgs e)
+        {
+            //Clicking this button should maybe open a file browser right here, or maybe should query
+            //the Flags class, and perhaps it should handle that?
+            Flags.Import("test");
+            
+        }
     }
 }

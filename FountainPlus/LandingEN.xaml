@@ -31,7 +31,7 @@
                         <ComboBoxItem Content="Fountain"/>
                         <ComboBoxItem Content="HTML"/>
                     </ComboBox>
-                    <Button Content="Import" Height="24" Width="65" Margin="0,0,5,0" />
+                    <Button Content="Import" Height="24" Width="65" Margin="0,0,5,0" Click="Button_Import_Click" />
 
                     <Separator Margin="20,2" />
                     <Label Name="Label_Edt" Content="Editor"/>
