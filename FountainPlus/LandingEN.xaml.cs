@@ -86,7 +86,7 @@ namespace FountainPlus
             catch { }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Save_Click(object sender, RoutedEventArgs e)
         {
             // left text field = boxInput
             string textToSave = boxInput.Text;
@@ -103,7 +103,7 @@ namespace FountainPlus
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Open_Click(object sender, RoutedEventArgs e)
         {
             try
             {
