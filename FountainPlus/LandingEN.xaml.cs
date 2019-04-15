@@ -92,7 +92,7 @@ namespace FountainPlus
             // left text field = boxInput
             string textToSave = boxInput.Text;
 
-            // Set a variable to the Documents path.
+            // Open Save dialogue and save text to selected file
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             if (saveFileDialog.ShowDialog() == true)
             {
@@ -104,20 +104,30 @@ namespace FountainPlus
             }         
         }
 
+        private void Button_SaveAs_Click(object sender, RoutedEventArgs e)
+        {
+            // left text field = boxInput
+            string textToSave = boxInput.Text;
+
+            // Open Save dialogue and save text to selected file
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                using (StreamWriter outputFile = new StreamWriter(saveFileDialog.FileName))
+                {
+                    outputFile.WriteLine(textToSave);
+                }
+                MessageBox.Show("Save successful! ;)");
+            }
+        }
+
         private void Button_Open_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                // Set a variable to the Documents path.
-                string docPath =
-                  Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
-                // Open the text file using a stream reader.
-                using (StreamReader sr = new StreamReader(Path.Combine(docPath, "TestFile.txt")))
-                {
-                    // Read the stream to a string, and write the string to the console.
-                    boxInput.Text = sr.ReadToEnd();
-                }
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                if (openFileDialog.ShowDialog() == true)
+                    boxInput.Text = File.ReadAllText(openFileDialog.FileName);
             }
             catch (IOException error1)
             {
@@ -133,5 +143,7 @@ namespace FountainPlus
             Flags.Import("test");
             
         }
+
+        
     }
 }
