@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System;
 using System.IO;
+using Microsoft.Win32;
 
 namespace FountainPlus
 {
@@ -92,15 +93,15 @@ namespace FountainPlus
             string textToSave = boxInput.Text;
 
             // Set a variable to the Documents path.
-            string docPath =
-              Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
-            // Write the string array to a new file named "WriteLines.txt".
-            using (StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "TestFile.txt")))
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            if (saveFileDialog.ShowDialog() == true)
             {
+                using (StreamWriter outputFile = new StreamWriter(saveFileDialog.FileName))
+                {
                     outputFile.WriteLine(textToSave);
-            }
-
+                }
+                MessageBox.Show("Save successful! ;)");
+            }         
         }
 
         private void Button_Open_Click(object sender, RoutedEventArgs e)
