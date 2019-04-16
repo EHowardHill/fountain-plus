@@ -117,7 +117,7 @@ namespace FountainPlus
                 {
                     outputFile.WriteLine(textToSave);
                 }
-                MessageBox.Show("Save successful! ;)");
+                MessageBox.Show("Save successful! ;)"); 
             }
         }
 
