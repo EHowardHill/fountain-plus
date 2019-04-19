@@ -2,6 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 using System;
+using System.Diagnostics;
 using System.IO;
 using Microsoft.Win32;
 
@@ -10,10 +11,11 @@ namespace FountainPlus
     /// Interaction logic for MainWindow.xaml
     public partial class LandingEN : Window {
 
+
         public LandingEN() {
             InitializeComponent();
             Drop_Font.SelectedValue = "Consolas";
-            Flags.Import("");
+
         }
 
         // Auto-Update
@@ -35,6 +37,7 @@ namespace FountainPlus
             Btn_Update.IsEnabled = true;
         }
 
+        //Reruns text processing when update button is checked
         private void Btn_Update_Click(object sender, RoutedEventArgs e)
         {
             try { OutputBrowser.NavigateToString(Fountain.Process(boxInput.Text)); }
@@ -76,6 +79,7 @@ namespace FountainPlus
             }
         }
 
+        //Changes the fonts
         private void Drop_Font_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
@@ -87,6 +91,7 @@ namespace FountainPlus
             catch { }
         }
 
+        //Save file button
         private void Button_Save_Click(object sender, RoutedEventArgs e)
         {
             // left text field = boxInput
@@ -99,11 +104,13 @@ namespace FountainPlus
                 using (StreamWriter outputFile = new StreamWriter(saveFileDialog.FileName))
                 {
                     outputFile.WriteLine(textToSave);
+                    outputFile.Close();
                 }
                 MessageBox.Show("Save successful! ;)");
             }         
         }
 
+        //Save as file button
         private void Button_SaveAs_Click(object sender, RoutedEventArgs e)
         {
             // left text field = boxInput
@@ -116,17 +123,20 @@ namespace FountainPlus
                 using (StreamWriter outputFile = new StreamWriter(saveFileDialog.FileName))
                 {
                     outputFile.WriteLine(textToSave);
+                    outputFile.Close();
                 }
                 MessageBox.Show("Save successful! ;)"); 
             }
         }
 
+        //Open button
         private void Button_Open_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 OpenFileDialog openFileDialog = new OpenFileDialog();
                 if (openFileDialog.ShowDialog() == true)
+                    //boxInput is the left hand size text input box
                     boxInput.Text = File.ReadAllText(openFileDialog.FileName);
             }
             catch (IOException error1)
@@ -136,14 +146,27 @@ namespace FountainPlus
             }
         }
 
+        //Import button
         private void Button_Import_Click(object sender, RoutedEventArgs e)
         {
             //Clicking this button should maybe open a file browser right here, or maybe should query
             //the Flags class, and perhaps it should handle that?
-            Flags.Import("test");
-            
+            //TODO
+
+            //Currently, only attempt to load if not HTML
+            if (!InterpreterSelection.Text.Equals("HTML"))
+            {
+                //Loads the flag of the currently selected formatting
+                Flags CurrentFlag = Flags.Import(InterpreterSelection.Text);
+                Trace.WriteLine(CurrentFlag.jsSnippet);
+
+            }
         }
 
-        
+
+
+
     }
+
+
 }

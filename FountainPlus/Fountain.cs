@@ -14,5 +14,7 @@ namespace FountainPlus
             output += input;
             return output;
         }
+
+
     }
 }

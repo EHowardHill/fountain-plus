@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using Newtonsoft.Json;
 
@@ -9,6 +10,7 @@ namespace FountainPlus {
         public string name;
         public double version;
         public string delimiter;
+        public string author;
         public string globalStyle;
         public string jsSnippet;
 
@@ -18,14 +20,31 @@ namespace FountainPlus {
             Flags output = new Flags();
 
             // If JSON directory exists, search for file
+
             if (Directory.Exists("./JSON/")) {
+                int i = 0;
+
+                //For each file in the directory
                 foreach (string f in Directory.GetFiles("./JSON/")) {
-                    try {
+
+                    try
+                    {
+                        //Try deserializing it
                         output = JsonConvert.DeserializeObject<Flags>(File.ReadAllText(f));
-                        if (output.name == s) { return output; }
+                        if (output.name == s)
+                        {
+                            //Reading the javascript from the separate file
+                            using (StreamReader inputFile = new StreamReader("./JSON/" + output.jsSnippet))
+                            {
+                                output.jsSnippet = inputFile.ReadToEnd();
+                                inputFile.Close();
+                            }
+                            
+                            return output;
+                        }
                     }
 
-                    catch { }
+                    catch {  }
                 }
             }
 
