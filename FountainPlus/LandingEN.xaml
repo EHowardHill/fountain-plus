@@ -15,11 +15,11 @@
         <TabControl Name="Bkg_Tabbar" SelectedIndex="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
             <TabItem Header="File">
                 <WrapPanel Margin="5">
-                    <Button Content="New" Height="22" Width="75" Margin="0,0,5,0" Click="Button_Click" />
+                    <Button Content="New" Height="22" Width="75" Margin="0,0,5,0" Click="Button_New_Click" />
                     <Button Content="Open" Height="22" Width="75" Margin="0,0,5,0" Click="Button_Open_Click" />
                     <Button Content="Save" Height="22" Width="75" Margin="0,0,5,0" Click="Button_Save_Click" />
                     <Button Content="Save As" Height="22" Width="75" Margin="0,0,5,0" Click="Button_SaveAs_Click" />
-                    <Button Content="Export" Height="22" Width="75" Margin="0,0,5,0" />
+                    <Button Content="Export" Height="22" Width="75" Margin="0,0,5,0" Click="Button_Export_Click" />
                 </WrapPanel>
 
             </TabItem>
