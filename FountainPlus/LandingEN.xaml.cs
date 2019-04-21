@@ -11,18 +11,19 @@ namespace FountainPlus
     /// Interaction logic for MainWindow.xaml
     public partial class LandingEN : Window
     {
+        private Flags currentFlag;
         String SaveFile = null;
 
         public LandingEN() {
             InitializeComponent();
             Drop_Font.SelectedValue = "Consolas";
-
+            Flags currentFlag = null;
         }
 
         // Auto-Update
         private void BoxInput_TextChanged(object sender, TextChangedEventArgs e) {
             if (Check_AutoUpdate.IsChecked.GetValueOrDefault()) {
-                try { OutputBrowser.NavigateToString(Fountain.Process(boxInput.Text)); }
+                try { OutputBrowser.NavigateToString(Fountain.Process(boxInput.Text, currentFlag)); }
                 catch { OutputBrowser.NavigateToString("<html></html>"); }
             }
         }
@@ -41,8 +42,14 @@ namespace FountainPlus
         //Reruns text processing when update button is checked
         private void Btn_Update_Click(object sender, RoutedEventArgs e)
         {
-            try { OutputBrowser.NavigateToString(Fountain.Process(boxInput.Text)); }
-            catch { OutputBrowser.NavigateToString("<html></html>"); }
+            try
+            {
+                OutputBrowser.NavigateToString(Fountain.Process(boxInput.Text, currentFlag));
+            }
+            catch
+            {
+                OutputBrowser.NavigateToString("<html></html>");
+            }
         }
 
         private void Drop_Interface_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -167,9 +174,7 @@ namespace FountainPlus
             if (!InterpreterSelection.Text.Equals("HTML"))
             {
                 //Loads the flag of the currently selected formatting
-                Flags CurrentFlag = Flags.Import(InterpreterSelection.Text);
-                Trace.WriteLine(CurrentFlag.jsSnippet);
-
+                currentFlag = Flags.Import(InterpreterSelection.Text);
             }
         }
 

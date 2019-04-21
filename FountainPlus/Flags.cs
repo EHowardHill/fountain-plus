@@ -9,7 +9,7 @@ namespace FountainPlus {
         // Different flags go here
         public string name;
         public double version;
-        public string delimiter;
+        public char delimiter;
         public string author;
         public string globalStyle;
         public string jsSnippet;
@@ -22,7 +22,6 @@ namespace FountainPlus {
             // If JSON directory exists, search for file
 
             if (Directory.Exists("./JSON/")) {
-                int i = 0;
 
                 //For each file in the directory
                 foreach (string f in Directory.GetFiles("./JSON/")) {
@@ -37,6 +36,7 @@ namespace FountainPlus {
                             using (StreamReader inputFile = new StreamReader("./JSON/" + output.jsSnippet))
                             {
                                 output.jsSnippet = inputFile.ReadToEnd();
+                                
                                 inputFile.Close();
                             }
                             
