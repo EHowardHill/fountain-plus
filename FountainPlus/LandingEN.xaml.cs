@@ -10,7 +10,7 @@ namespace FountainPlus
 {
     /// Interaction logic for MainWindow.xaml
     public partial class LandingEN : Window {
-
+        String SaveFile = null;
 
         public LandingEN() {
             InitializeComponent();
@@ -91,7 +91,6 @@ namespace FountainPlus
             catch { }
         }
 
-        String SaveFile = null;
         //Save file button
         private void Button_Save_Click(object sender, RoutedEventArgs e)
         {
