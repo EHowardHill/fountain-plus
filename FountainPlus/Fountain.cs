@@ -16,21 +16,29 @@ namespace FountainPlus
             //If we do have a flag loaded, then we're running this2
             if (currentFlag != null)
             {
-                output += "<html>\r\n\r\n<head>\r\n    <script>\r\n        var lines = []\r\n        var style = \"font-family: Courier New, Courier, monospace;\" // Part of FLAGS bit\r\n\r\n        // Input from user\r\n        var texts = [";
-                String[] splitByDelimiter = input.Split(currentFlag.delimiter);
+                output += "<html>\r\n\r\n<head>\r\n    <script>\r\n        var lines = [];\r\n        var style = \"font-family: Courier New, Courier, monospace;\" // Part of FLAGS bit\r\n\r\n        // Input from user\r\n        var texts = [";
+                input = input.Replace("\r\n", "\n");
+                String[] splitByDelimiter = input.Split('\n');
+
                 for (int i = 0; i < splitByDelimiter.Length; i++)
                 {
-                    Trace.WriteLine(splitByDelimiter[i]);
-                }
-                for (int i = 0; i < splitByDelimiter.Length; i++)
-                {
+                    Trace.WriteLine("I have this many strings: " + splitByDelimiter.Length);
+
                     if (i == (splitByDelimiter.Length - 1))
                     {
-                        output += "\"" + splitByDelimiter[i] + "\"";
+                        Trace.WriteLine("Chose option 1");
+                        output += "\"";
+                        output += splitByDelimiter[i];
+                        output += "\"";
                     }
                     else
                     {
-                        output += "\"" + splitByDelimiter[i] + "\"" + ",";
+                        Trace.WriteLine("Chose option 2");
+
+                        output += "\"";
+                        output += splitByDelimiter[i];
+                        output += "\"";
+                        output += ",";
                     }
                 }
 
