@@ -91,23 +91,31 @@ namespace FountainPlus
             catch { }
         }
 
+        String SaveFile = null;
         //Save file button
         private void Button_Save_Click(object sender, RoutedEventArgs e)
         {
             // left text field = boxInput
             string textToSave = boxInput.Text;
-
-            // Open Save dialogue and save text to selected file
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            if (saveFileDialog.ShowDialog() == true)
-            {
-                using (StreamWriter outputFile = new StreamWriter(saveFileDialog.FileName))
+            if (SaveFile == null){
+                // Open Save dialogue and save text to selected file
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                if (saveFileDialog.ShowDialog() == true)
                 {
-                    outputFile.WriteLine(textToSave);
-                    outputFile.Close();
+                    using (StreamWriter outputFile = new StreamWriter(saveFileDialog.FileName))
+                    {
+                        outputFile.WriteLine(textToSave);
+                        outputFile.Close();
+                    }
+                    SaveFile = saveFileDialog.FileName;
+                    MessageBox.Show("Save successful! ;)");
                 }
+            }
+            else
+            {
+                System.IO.File.WriteAllText(SaveFile, textToSave);
                 MessageBox.Show("Save successful! ;)");
-            }         
+            }
         }
 
         //Save as file button
@@ -125,7 +133,8 @@ namespace FountainPlus
                     outputFile.WriteLine(textToSave);
                     outputFile.Close();
                 }
-                MessageBox.Show("Save successful! ;)"); 
+                SaveFile = saveFileDialog.FileName;
+                MessageBox.Show("Save successful! ;)");
             }
         }
 
@@ -138,6 +147,7 @@ namespace FountainPlus
                 if (openFileDialog.ShowDialog() == true)
                     //boxInput is the left hand size text input box
                     boxInput.Text = File.ReadAllText(openFileDialog.FileName);
+                    SaveFile = openFileDialog.FileName;
             }
             catch (IOException error1)
             {
@@ -163,9 +173,11 @@ namespace FountainPlus
             }
         }
 
-
-
-
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            boxInput.Text = null;
+            SaveFile = null;
+        }
     }
 
 
