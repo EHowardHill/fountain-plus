@@ -9,7 +9,8 @@ using Microsoft.Win32;
 namespace FountainPlus
 {
     /// Interaction logic for MainWindow.xaml
-    public partial class LandingEN : Window {
+    public partial class LandingEN : Window
+    {
         String SaveFile = null;
 
         public LandingEN() {
