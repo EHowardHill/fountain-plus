@@ -8,17 +8,18 @@ namespace FountainPlus
 {
     /// Interaction logic for MainWindow.xaml
     public partial class LandingSP : Window {
+        private Flags currentFlag;
 
         public LandingSP() {
             InitializeComponent();
             Drop_Font.SelectedValue = "Consolas";
-            Flags.Import("");
+            Flags currentFlag = null;
         }
 
         // Auto-Update
         private void BoxInput_TextChanged(object sender, TextChangedEventArgs e) {
             if (Check_AutoUpdate.IsChecked.GetValueOrDefault()) {
-                try { OutputBrowser.NavigateToString(Fountain.Process(boxInput.Text)); }
+                try { OutputBrowser.NavigateToString(Fountain.Process(boxInput.Text, currentFlag)); }
                 catch { OutputBrowser.NavigateToString("<html></html>"); }
             }
         }
@@ -36,7 +37,7 @@ namespace FountainPlus
 
         private void Btn_Update_Click(object sender, RoutedEventArgs e)
         {
-            try { OutputBrowser.NavigateToString(Fountain.Process(boxInput.Text)); }
+            try { OutputBrowser.NavigateToString(Fountain.Process(boxInput.Text, currentFlag)); }
             catch { OutputBrowser.NavigateToString("<html></html>"); }
         }
 
