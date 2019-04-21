@@ -19,7 +19,7 @@ namespace FountainPlus
                 output += "<html>\r\n\r\n<head>\r\n    " +
                     "<script>\r\n        " +
                     "var lines = [];\r\n        " +
-                    "var style = \"font-family: Courier New, Courier, monospace;\"" +
+                    "var style = \"font-family: Courier New, Courier, monospace;\"\r\n;" +
                     "var texts = [";
 
                 input = input.Replace("\r\n", "\n");
@@ -48,9 +48,9 @@ namespace FountainPlus
                 }
 
                 output += "];\r\n" +
-                    "Array.prototype.slice.call(texts).forEach(function (entry) {\r\n" +
-                    currentFlag.jsSnippet +
-                    "         });\r\n\r\n    " +
+                    "for (var entry = 0; entry < texts.length; entry++) {\r\n" +
+                        currentFlag.jsSnippet +
+                        "         };\r\n\r\n    " +
                     "</script>\r\n" +
                     "</head>\r\n\r\n" +
 
@@ -59,9 +59,9 @@ namespace FountainPlus
                         "</div>\r\n\r\n    " +
                         "<script>\r\n        " +
                             "var html = \"\";\r\n\r\n        " +
-                            "lines.forEach(function (entry) {\r\n            " +
-                            "html += entry.toString();\r\n        " +
-                            "});\r\n\r\n        " +
+                            "for (var entry = 0; entry < lines.length; entry++) {\r\n            " +
+                                "html += lines[entry].toString();\r\n        " +
+                            "};\r\n\r\n        " +
                             "document.getElementById(\"p_text\").innerHTML = html;\r\n    " +
                         "</script>\r\n" +
                     "</body>\r\n\r\n" +

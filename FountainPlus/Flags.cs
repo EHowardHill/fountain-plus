@@ -30,13 +30,13 @@ namespace FountainPlus {
                     {
                         //Try deserializing it
                         output = JsonConvert.DeserializeObject<Flags>(File.ReadAllText(f));
+
                         if (output.name == s)
                         {
                             //Reading the javascript from the separate file
                             using (StreamReader inputFile = new StreamReader("./JSON/" + output.jsSnippet))
                             {
                                 output.jsSnippet = inputFile.ReadToEnd();
-                                
                                 inputFile.Close();
                             }
                             
