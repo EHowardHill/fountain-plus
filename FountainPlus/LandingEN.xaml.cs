@@ -11,6 +11,7 @@ namespace FountainPlus
     /// Interaction logic for MainWindow.xaml
     public partial class LandingEN : Window
     {
+
         private Flags currentFlag;
 
 
