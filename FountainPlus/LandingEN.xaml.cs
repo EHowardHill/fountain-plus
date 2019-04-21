@@ -11,9 +11,8 @@ namespace FountainPlus
     /// Interaction logic for MainWindow.xaml
     public partial class LandingEN : Window
     {
-
         private Flags currentFlag;
-
+        String SaveFile = null;
 
         public LandingEN() {
             InitializeComponent();
@@ -100,7 +99,6 @@ namespace FountainPlus
             catch { }
         }
 
-        String SaveFile = null;
         //Save file button
         private void Button_Save_Click(object sender, RoutedEventArgs e)
         {
@@ -180,10 +178,29 @@ namespace FountainPlus
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_New_Click(object sender, RoutedEventArgs e)
         {
             boxInput.Text = null;
             SaveFile = null;
+        }
+
+        private void Button_Export_Click(object sender, RoutedEventArgs e)
+        {
+            dynamic doc = OutputBrowser.Document;
+            String htmlText = doc.documentElement.InnerHtml;
+            // Open Save dialogue and save text to selected file
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.DefaultExt = ".html";
+            saveFileDialog.Filter = "HTML files (.html)|*.html";
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                using (StreamWriter outputFile = new StreamWriter(saveFileDialog.FileName))
+                {
+                    outputFile.WriteLine(htmlText);
+                    outputFile.Close();
+                }
+                MessageBox.Show("Export successful! ;)");
+            }
         }
     }
 

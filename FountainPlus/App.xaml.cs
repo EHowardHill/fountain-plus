@@ -15,7 +15,7 @@ namespace FountainPlus
             switch (CultureInfo.CurrentCulture.EnglishName)
             {
                 case "Japanese (Japan)":
-                    landing = new LandingJP();
+                    landing = new LandingEN();
                     break;
                 case "Spanish (Mexico)":
                     landing = new LandingSP();
