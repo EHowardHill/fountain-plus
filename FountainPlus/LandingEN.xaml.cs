@@ -166,16 +166,8 @@ namespace FountainPlus
         //Import button
         private void Button_Import_Click(object sender, RoutedEventArgs e)
         {
-            //Clicking this button should maybe open a file browser right here, or maybe should query
-            //the Flags class, and perhaps it should handle that?
-            //TODO
 
-            //Currently, only attempt to load if not HTML
-            if (!InterpreterSelection.Text.Equals("HTML"))
-            {
-                //Loads the flag of the currently selected formatting
-                currentFlag = Flags.Import(InterpreterSelection.Text);
-            }
+            //HELLO VEISSULF!
         }
 
         private void Button_New_Click(object sender, RoutedEventArgs e)
@@ -200,6 +192,16 @@ namespace FountainPlus
                     outputFile.Close();
                 }
                 MessageBox.Show("Export successful! ;)");
+            }
+        }
+
+        private void Interpreter_DropDownClosed(object sender, EventArgs e)
+        {
+            //Currently, only attempt to load if not HTML
+            if (!InterpreterSelection.Text.Equals("HTML"))
+            {
+                //Loads the flag of the currently selected formatting
+                currentFlag = Flags.Import(InterpreterSelection.Text);
             }
         }
     }
