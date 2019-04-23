@@ -14,7 +14,7 @@ namespace FountainPlus
             output = "<meta http-equiv=\"X - UA - Compatible\" content=\"IE =11\" >\n";
 
             //If we do have a flag loaded, then we're running this2
-            if (currentFlag != null)
+            if (true)
             {
                 output += "<html>\r\n\r\n<head>\r\n    " +
                     "<script>\r\n        " +

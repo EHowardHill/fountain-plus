@@ -27,7 +27,7 @@
             <TabItem Header="Format">
                 <WrapPanel Margin="10,5">
                     <Label Name="Label_Int">Interpreter</Label>
-                    <ComboBox Name="InterpreterSelection" SelectedIndex="1" Margin="0,0,5,0" Width="82" DropDownClosed="Interpreter_DropDownClosed">
+                    <ComboBox Name="InterpreterSelection" SelectedIndex="0" Margin="0,0,5,0" Width="82" DropDownClosed="Interpreter_DropDownClosed">
                         <ComboBoxItem Content="Fountain"/>
                         <ComboBoxItem Content="HTML"/>
                     </ComboBox>

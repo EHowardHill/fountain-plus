@@ -17,7 +17,7 @@ namespace FountainPlus
         public LandingEN() {
             InitializeComponent();
             Drop_Font.SelectedValue = "Consolas";
-            Flags currentFlag = null;
+            currentFlag = Flags.Import(InterpreterSelection.Text);
         }
 
         // Auto-Update
