@@ -203,6 +203,11 @@ namespace FountainPlus
                 //Loads the flag of the currently selected formatting
                 currentFlag = Flags.Import(InterpreterSelection.Text);
             }
+            else
+            {
+                //Sets flag to null so text is treated like HTML when we switch back to HTML
+                currentFlag = null;
+            }
         }
     }
 
