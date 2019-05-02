@@ -39,12 +39,15 @@ namespace FountainPlus {
                                 output.jsSnippet = inputFile.ReadToEnd();
                                 inputFile.Close();
                             }
-                            
+
                             return output;
                         }
                     }
 
-                    catch {  }
+                    catch
+                    {
+                        return null;
+                    }
                 }
             }
 

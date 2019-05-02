@@ -202,6 +202,10 @@ namespace FountainPlus
             {
                 //Loads the flag of the currently selected formatting
                 currentFlag = Flags.Import(InterpreterSelection.Text);
+                if (currentFlag == null)
+                {
+                    Trace.WriteLine("Unable to load flag, file does not exist!");
+                }
             }
             else
             {
