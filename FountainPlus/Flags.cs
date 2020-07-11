@@ -33,11 +33,16 @@ namespace FountainPlus {
 
                         if (output.name == s)
                         {
+
+                            System.Windows.MessageBox.Show(output.jsSnippet + " - Yeah!");
+
                             //Reading the javascript from the separate file
                             using (StreamReader inputFile = new StreamReader("./JSON/" + output.jsSnippet))
                             {
                                 output.jsSnippet = inputFile.ReadToEnd();
                                 inputFile.Close();
+
+                                System.Windows.MessageBox.Show(output.jsSnippet + " - Yeah!");
                             }
                             
                             return output;
