@@ -44,12 +44,15 @@ namespace FountainPlus {
 
                                 System.Windows.MessageBox.Show(output.jsSnippet + " - Yeah!");
                             }
-                            
+
                             return output;
                         }
                     }
 
-                    catch {  }
+                    catch
+                    {
+                        return null;
+                    }
                 }
             }
 

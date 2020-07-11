@@ -17,7 +17,7 @@ namespace FountainPlus
         public LandingEN() {
             InitializeComponent();
             Drop_Font.SelectedValue = "Consolas";
-            currentFlag = Flags.Import(InterpreterSelection.Text);
+            Flags currentFlag = null;
         }
 
         // Auto-Update
@@ -202,6 +202,15 @@ namespace FountainPlus
             {
                 //Loads the flag of the currently selected formatting
                 currentFlag = Flags.Import(InterpreterSelection.Text);
+                if (currentFlag == null)
+                {
+                    Trace.WriteLine("Unable to load flag, file does not exist!");
+                }
+            }
+            else
+            {
+                //Sets flag to null so text is treated like HTML when we switch back to HTML
+                currentFlag = null;
             }
         }
     }
